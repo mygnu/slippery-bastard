@@ -1,0 +1,46 @@
+name: Build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install Rust
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          profile: minimal
+          override: true
+      - name: Build
+        run: cargo build --release
+      - name: Upload Windows artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: slippery-bastard-windows
+          path: target/release/slippery-bastard.exe
+
+  build-linux:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install Rust
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          profile: minimal
+          override: true
+      - name: Install X11 dependencies
+        run: sudo apt-get update && sudo apt-get install -y libx11-dev libxtst-dev libxdo-dev
+      - name: Build
+        run: cargo build --release
+      - name: Upload Linux artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: slippery-bastard-linux
+          path: target/release/slippery-bastard
