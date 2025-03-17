@@ -18,7 +18,7 @@ jobs:
       - name: Build
         run: cargo build --release
       - name: Upload Windows artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: slippery-bastard-windows
           path: target/release/slippery-bastard.exe
@@ -38,7 +38,7 @@ jobs:
       - name: Build
         run: cargo build --release
       - name: Upload Linux artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: slippery-bastard-linux
           path: target/release/slippery-bastard
