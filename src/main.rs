@@ -11,7 +11,7 @@ fn main() {
     loop {
         thread::sleep(wait);
         enigo.move_mouse(10, 10, Coordinate::Rel).unwrap();
-        thread::sleep(Duration::from_millis(50));
+        thread::sleep(Duration::from_millis(100));
         enigo.move_mouse(-10, -10, Coordinate::Rel).unwrap();
     }
 }
