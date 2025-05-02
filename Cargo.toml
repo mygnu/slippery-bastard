@@ -1,10 +1,11 @@
 [package]
 name = "slippery-bastard"
-version = "0.2.0"
+version = "0.3.0"
 edition = "2024"
 
 [dependencies]
-enigo = "0.3.0"
+enigo = "0.3"
+windows-service = "0.8"
 
 
 [package.metadata.packager]

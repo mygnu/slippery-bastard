@@ -1,17 +1,12 @@
-use enigo::{Coordinate, Enigo, Mouse, Settings};
+#[cfg(windows)]
+mod service;
 
-use std::{
-    thread::{self},
-    time::Duration,
-};
+#[cfg(windows)]
+fn main() -> windows_service::Result<()> {
+    ping_service::run()
+}
 
+#[cfg(not(windows))]
 fn main() {
-    let mut enigo = Enigo::new(&Settings::default()).unwrap();
-    let wait = Duration::from_secs(300);
-    loop {
-        thread::sleep(wait);
-        enigo.move_mouse(10, 10, Coordinate::Rel).unwrap();
-        thread::sleep(Duration::from_millis(100));
-        enigo.move_mouse(-10, -10, Coordinate::Rel).unwrap();
-    }
+    panic!("This program is only intended to run on Windows.");
 }
