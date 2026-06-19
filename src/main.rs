@@ -1,12 +1,6 @@
-#[cfg(windows)]
-mod service;
+mod app;
 
-#[cfg(windows)]
-fn main() -> windows_service::Result<()> {
-    ping_service::run()
-}
-
-#[cfg(not(windows))]
-fn main() {
-    panic!("This program is only intended to run on Windows.");
+fn main() -> Result<(), Box<dyn std::error::Error>> {
+    app::run()?;
+    Ok(())
 }

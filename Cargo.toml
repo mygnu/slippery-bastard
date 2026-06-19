@@ -1,14 +1,16 @@
 [package]
 name = "slippery-bastard"
-version = "0.3.0"
+version = "0.5.0"
 edition = "2024"
 
 [dependencies]
-enigo = "0.3"
-windows-service = "0.8"
+ratatui = "0.30"
+crossterm = "0.29"
+enigo = "0.6"
+chrono = "0.4"
 
 
 [package.metadata.packager]
 before-packaging-command = "cargo build --release"
 product-name = "Slippery Bastard"
-identifier = "com.slippery Bastard"
+identifier = "com.slippery.bastard"
