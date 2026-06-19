@@ -1,3 +1,6 @@
 {
-  "cSpell.words": ["enigo", "Rel"]
+  "cSpell.words": ["enigo", "Rel"],
+  "chat.tools.terminal.autoApprove": {
+    "cargo run": true
+  }
 }
